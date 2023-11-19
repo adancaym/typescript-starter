@@ -3,9 +3,9 @@ import express, { Express } from 'express';
 import listEndpoints from 'express-list-endpoints';
 
 import { AuthRouter, RootRouter } from './routes';
-import { IServer, IServerApplication } from '../../../interfaces';
+import { IServerApplication, IUserServer } from '../../../interfaces';
 
-export class Server implements IServer {
+export class Server implements IUserServer {
   port: number;
   app: IServerApplication = express();
 

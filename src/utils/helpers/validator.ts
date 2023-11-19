@@ -3,10 +3,11 @@ export class Validator {
     return /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
   }
   static get onlyChars() {
-    return /^[a-zA-ZñÑáéíóúÁÉÍÓÚüÜ]+$/;
+    return /^[a-zA-ZñÑ]+$/;
   }
+
   static get onlyNumbers() {
-    return /^[0-9]+$/;
+    return /^[/d]+$/;
   }
 
   static get onlyAlphaNumeric() {

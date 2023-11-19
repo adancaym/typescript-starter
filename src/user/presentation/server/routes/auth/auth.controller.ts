@@ -1,16 +1,19 @@
-import { IController, IRequest, IResponse } from '../../../../../interfaces';
+import {
+  IResponse,
+  IAuthController,
+  IRegisterUserDto,
+  IRequestRegisterUserDto,
+} from '../../../../../interfaces';
+
 import { RegisterUserDto } from '../../../../domain';
 
-export class AuthController implements IController {
-  register(req: IRequest, res: IResponse): void {
+export class AuthController implements IAuthController {
+  register(req: IRequestRegisterUserDto, res: IResponse): void {
     try {
-      const asd = RegisterUserDto.create(req.body);
-      res.status(200).json({ message: asd });
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      const registerDto: IRegisterUserDto = RegisterUserDto.create(req.body);
+      res.status(200).json(registerDto);
     } catch (error: any) {
-      res
-        .status(500)
-        .json({ message: error.message ?? 'Internal Server Error' });
+      res.status(400).json({ error: error.message });
     }
   }
 }

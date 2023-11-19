@@ -1,4 +1,6 @@
+import 'reflect-metadata';
 import { bootstrap } from './user';
+
 
 (async () => {
   try {

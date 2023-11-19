@@ -1,12 +1,16 @@
 import { Router } from 'express';
 import { RootController } from './root.controller';
-import { IServerRouter, IRouter } from '../../../../../interfaces';
+import {
+  IRootController,
+  IRootRouter,
+  IRouter,
+} from '../../../../../interfaces';
 
-export class RootRouter implements IServerRouter {
+export class RootRouter implements IRootRouter {
   path = '/';
 
   getRouter(): IRouter {
-    const rootController = new RootController();
+    const rootController: IRootController = new RootController();
     const router: IRouter = Router() as IRouter;
     router.get('/', rootController.root);
     return router;
